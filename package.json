@@ -2,10 +2,10 @@
   "name": "marvel-app",
   "version": "0.1.0",
   "description": "",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browser-sync start --server '.src/' --files '.src/**/*'"
+    "start": "browser-sync start --server \"src\" --files \"src/**/*\""
   },
   "devDependencies": {
     "browser-sync": "^3.0.4"
