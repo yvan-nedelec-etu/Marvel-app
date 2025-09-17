@@ -1,42 +1,46 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centre le contenu horizontalement */
+    min-height: 100vh;
+    background: #ffffff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1 {
+    width: 100%; /* conserve l'en-tête sur toute la largeur */
+    margin: 0;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    text-align: center;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* centre la liste en limitant sa largeur */
+ul {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+    width: 100%;
+    max-width: 480px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* style des items, texte aligné à gauche pour lisibilité */
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
 }
 
+/* carte/section centrée et limitée */
 .card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+    width: 100%;
+    max-width: 480px;
+    margin: 1rem 0;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    border-radius: 6px;
+    background: #fafafa;
 }
