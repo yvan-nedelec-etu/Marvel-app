@@ -2,6 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import characters from '../data/characters.json'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,9 +17,14 @@ function App() {
       <h1>Marvel App</h1>
 
       <ul id="characters">
-        <li>Beast</li>
-        <li>Captain America</li>
-        <li>Deadpool</li>
+        {Array.isArray(characters) ? (
+          characters.map((c, i) => {
+            const label = typeof c === 'string' ? c : (c && (c.name || c.title || c.label)) || JSON.stringify(c)
+            return <li key={i}>{label}</li>
+          })
+        ) : (
+          <li>No characters</li>
+        )}
       </ul>
     </>
   )
