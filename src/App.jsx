@@ -4,6 +4,7 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import characters from '../data/characters.json'
 import CharactersList from './components/CharactersList'
+import NumberOfCharacters from './components/NumberOfCharacters'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -16,8 +17,8 @@ function App() {
         </a>
       </div>
       <h1>Marvel App</h1>
-
       <CharactersList characters={characters} />
+      <NumberOfCharacters characters={characters} /> 
     </>
   )
 }
