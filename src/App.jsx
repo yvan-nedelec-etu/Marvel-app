@@ -1,25 +1,35 @@
+// ...existing code...
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import characters from '../data/characters.json'
-import CharactersList from './components/CharactersList'
-import NumberOfCharacters from './components/NumberOfCharacters'
+import MainLayout from './layout/layout.jsx'
+import { Routes, Route } from 'react-router-dom'
 
-function App() {
+import Home from './pages/Home'
+import CharactersPage from './pages/CharactersPage'
+import About from './pages/About'
+import Contact from './pages/Contact'
+
+function NotFound() {
+  return (
+    <section>
+      <h2>404 — Not Found</h2>
+      <p>La page demandée n'existe pas.</p>
+    </section>
+  )
+}
+
+export default function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <div>
-        <a href="https://but-sd.github.io/prez/marvel.png" target="_blank" rel="noopener">
-          <img src="https://but-sd.github.io/prez/marvel.png" className="logo marvel" alt="Marvel logo" />
-        </a>
-      </div>
-      <h1>Marvel App</h1>
-      <CharactersList characters={characters} />
-      <NumberOfCharacters characters={characters} /> 
-    </>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Home />} />
+        <Route path="characters" element={<CharactersPage />} />
+        <Route path="about" element={<About />} />
+        <Route path="contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   )
 }
-export default App
