@@ -1,0 +1,46 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* centre le contenu horizontalement */
+    min-height: 100vh;
+    background: #ffffff;
+}
+
+h1 {
+    width: 100%; /* conserve l'en-tête sur toute la largeur */
+    margin: 0;
+    padding: 20px;
+    background: #333;
+    color: #fff;
+    text-align: center;
+}
+
+/* centre la liste en limitant sa largeur */
+ul {
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+    width: 100%;
+    max-width: 480px;
+}
+
+/* style des items, texte aligné à gauche pour lisibilité */
+li {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    background: #fff;
+}
+
+/* carte/section centrée et limitée */
+.card {
+    width: 100%;
+    max-width: 480px;
+    margin: 1rem 0;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    border-radius: 6px;
+    background: #fafafa;
+}
