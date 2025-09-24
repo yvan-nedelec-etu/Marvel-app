@@ -1,0 +1,85 @@
+/* filepath: c:\Users\ynedel01\Downloads\Marvel-app\src\layout\layout.css */
+.app-layout {
+  min-height: 100vh;
+  display: flex; /* was invalid "center" */
+  flex-direction: column;
+  width: 100%;
+}
+
+/* header */
+.app-header {
+  width: 100%;
+  background: #222; /* full width background */
+  color: #fff;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.1);
+  position: relative;
+}
+
+/* conteneur centré à l'intérieur du header (pour le logo / liens) */
+.app-header .header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  box-sizing: border-box;
+}
+
+.logo-wrap .logo {
+  height: 44px;
+}
+
+/* nav links */
+.app-nav a {
+  color: #fff;
+  margin-left: 12px;
+  text-decoration: none;
+}
+
+/* body with sidebar + content — full width */
+.app-body {
+  display: flex;
+  gap: 24px;
+  padding: 20px;
+  width: 100%;
+  box-sizing: border-box;
+  flex: 1;
+}
+
+/* keep sidebar width and let content expand */
+.app-sidebar {
+  width: 200px;
+}
+
+.app-content {
+  flex: 1;
+  max-width: none; /* allow full width */
+}
+
+/* footer */
+.app-footer {
+  text-align: center;
+  padding: 12px 0;
+  background: #f5f5f5;
+  width: 100%;
+}
+
+.app-nav {
+  width: 100vw;
+  margin-left: calc(50% - 50vw); /* expand from centered container to full viewport */
+  background: #222;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center; /* change to flex-start / space-between if needed */
+  gap: 16px;
+  box-sizing: border-box;
+  z-index: 10;
+}
+
+.app-nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 12px;
+  display: inline-block;
+}
