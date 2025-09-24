@@ -8,15 +8,7 @@ import Home from './pages/Home'
 import CharactersPage from './pages/CharactersPage'
 import About from './pages/About'
 import Contact from './pages/Contact'
-
-function NotFound() {
-  return (
-    <section>
-      <h2>404 — Not Found</h2>
-      <p>La page demandée n'existe pas.</p>
-    </section>
-  )
-}
+import NotFound from './pages/NotFound'
 
 export default function App() {
   const [count, setCount] = useState(0)
