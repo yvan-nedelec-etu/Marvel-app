@@ -1,46 +1,226 @@
-body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* centre le contenu horizontalement */
-    min-height: 100vh;
-    background: #ffffff;
+/* ...existing code... */
+
+/* ============================================================
+   Elite, production-ready CSS — clean, accessible, responsive
+   - Full-bleed header/nav/footer with centered content container
+   - Fluid layout, smart max-width, subtle depth & motion
+   - Readable type scale, accessible color contrast
+   - Optimized for desktop / tablet / mobile
+   ============================================================ */
+
+:root{
+  --bg-0: #071021;      /* darkest background */
+  --bg-1: #0b1220;      /* panel backgrounds */
+  --muted: #a9bacb;     /* secondary text */
+  --text: #eaf2ff;      /* primary text */
+  --accent: #e62429;    /* Marvel red */
+  --glass: rgba(255,255,255,0.04);
+  --max-width: 1200px;
+  --gap: 20px;
+  --radius: 12px;
+  --shadow-1: 0 6px 20px rgba(2,6,23,0.6);
+  --transition: 160ms cubic-bezier(.2,.9,.2,1);
+  --nav-height: 62px;
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
 
-h1 {
-    width: 100%; /* conserve l'en-tête sur toute la largeur */
-    margin: 0;
-    padding: 20px;
-    background: #333;
-    color: #fff;
-    text-align: center;
+/* global reset & base */
+*{box-sizing:border-box}
+html,body,#root{height:100%;width:100%;margin:0;padding:0}
+body{
+  font-family: var(--font-sans);
+  background: linear-gradient(180deg,var(--bg-0) 0%,var(--bg-1) 100%);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.5;
+  min-width:320px;
+  -webkit-text-size-adjust:100%;
 }
 
-/* centre la liste en limitant sa largeur */
-ul {
-    list-style: none;
-    margin: 1rem 0;
-    padding: 0;
-    width: 100%;
-    max-width: 480px;
+/* page wrapper: full width but content centered inside */
+#root, .app-layout {
+  width:100%;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
 }
 
-/* style des items, texte aligné à gauche pour lisibilité */
-li {
-    padding: 10px;
-    border-bottom: 1px solid #ccc;
-    background: #fff;
+/* header: top strip (logo) and full-bleed nav */
+.app-header{ width:100%; position:sticky; top:0; z-index:60; backdrop-filter: blur(6px); }
+
+/* logo row (centered) */
+.header-inner{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:12px var(--gap);
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px;
+  box-sizing:border-box;
+  height:var(--nav-height);
+}
+.logo-wrap .logo{
+  height:44px;
+  display:block;
+  object-fit:contain;
+  border-radius:8px;
+  transition:transform var(--transition), filter var(--transition);
+}
+.logo-wrap .logo:hover{ transform:translateY(-2px); filter:drop-shadow(0 6px 18px rgba(0,0,0,0.45)); }
+
+/* navigation full width bar (visual full-bleed) */
+.app-nav{
+  width:100%;
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.02));
+  border-top:1px solid rgba(255,255,255,0.02);
+  box-shadow: var(--shadow-1);
 }
 
-/* carte/section centrée et limitée */
-.card {
-    width: 100%;
-    max-width: 480px;
-    margin: 1rem 0;
-    padding: 1rem;
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    border-radius: 6px;
-    background: #fafafa;
+/* centered container inside nav */
+.app-nav .nav-inner{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:10px var(--gap);
+  display:flex;
+  gap:18px;
+  align-items:center;
+  justify-content:flex-start; /* change to center to center links */
+  box-sizing:border-box;
 }
+
+/* nav links — modern pill style */
+.app-nav a{
+  color:var(--muted);
+  text-decoration:none;
+  padding:8px 12px;
+  border-radius:10px;
+  font-weight:600;
+  font-size:0.95rem;
+  transition:all var(--transition);
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+}
+.app-nav a:hover,
+.app-nav a:focus{
+  color:var(--text);
+  background:var(--glass);
+  transform:translateY(-2px);
+  outline:none;
+  box-shadow:0 8px 22px rgba(2,6,23,0.35);
+}
+.app-nav a[aria-current="page"],
+.app-nav a.active{
+  color:#fff;
+  background:linear-gradient(90deg, rgba(230,36,41,0.14), rgba(230,36,41,0.06));
+  box-shadow:0 10px 26px rgba(230,36,41,0.06);
+  border:1px solid rgba(230,36,41,0.12);
+}
+
+/* layout body: sidebar + content */
+.app-body{
+  display:flex;
+  gap:28px;
+  padding:28px;
+  width:100%;
+  box-sizing:border-box;
+  align-items:flex-start;
+  flex:1 1 auto;
+}
+
+/* optional sidebar */
+.app-sidebar{
+  width:240px;
+  min-width:180px;
+  border-radius:var(--radius);
+  padding:14px;
+  color:var(--muted);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow:var(--shadow-1);
+  height:fit-content;
+}
+
+/* content area */
+.app-content{
+  flex:1 1 auto;
+  width:100%;
+  max-width:calc(100% - 280px);
+}
+
+/* card / section look */
+section, .card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:18px;
+  border-radius:12px;
+  margin-bottom:18px;
+  box-shadow:0 8px 30px rgba(2,6,23,0.45);
+}
+
+/* headings */
+h1,h2,h3 { margin:0 0 12px 0; color:var(--text); font-weight:700; }
+h1{ font-size:2rem }
+h2{ font-size:1.4rem }
+
+/* characters list */
+#characters{ list-style:none; margin:12px 0 0; padding:0; display:block; }
+#characters li{
+  padding:14px 16px;
+  border-radius:10px;
+  margin-bottom:12px;
+  background:linear-gradient(90deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+  border:1px solid rgba(255,255,255,0.03);
+  display:flex;
+  align-items:center;
+  justify-content:flex-start;
+  gap:12px;
+  color:var(--text);
+  transition:transform .12s ease, box-shadow .12s ease;
+}
+#characters li:hover{ transform:translateY(-6px); box-shadow:0 14px 40px rgba(2,6,23,0.6); }
+
+/* footer: full width */
+.app-footer{
+  width:100%;
+  padding:18px 12px;
+  text-align:center;
+  color:var(--muted);
+  border-top:1px solid rgba(255,255,255,0.02);
+  background:linear-gradient(180deg, rgba(0,0,0,0.01), rgba(0,0,0,0.00));
+}
+
+/* utility: center a content container inside full-bleed element */
+.full-bleed { width:100vw; margin-left:calc(50% - 50vw); }
+
+/* accessibility focus */
+a:focus{ outline:3px solid rgba(230,36,41,0.18); outline-offset:3px }
+
+/* small screens: collapse sidebar, stack content */
+@media (max-width:1000px){
+  .app-body{ padding:18px; gap:18px; flex-direction:column; }
+  .app-sidebar{ width:100%; order:2; }
+  .app-content{ max-width:100%; }
+  .header-inner{ justify-content:center; }
+  .app-nav .nav-inner{ justify-content:center; flex-wrap:wrap; gap:10px; padding:12px; }
+}
+
+/* mobile tweaks */
+@media (max-width:520px){
+  .logo-wrap .logo{ height:36px }
+  .app-nav .nav-inner{ gap:8px; padding:8px; }
+  #characters li{ padding:10px }
+  .app-sidebar{ display:none }
+  h1{ font-size:1.6rem }
+}
+
+/* legacy nav fallback (if your markup uses <nav><ul><li>) */
+nav{ background:transparent; }
+nav ul{ display:flex; gap:12px; list-style:none; margin:0; padding:0; align-items:center; }
+nav a{ color:var(--muted); text-decoration:none; padding:6px 8px; border-radius:8px; }
+
+/* small helpers */
+.center { margin: 0 auto; max-width:var(--max-width); padding:0 var(--gap); }
+.container { max-width:var(--max-width); margin:0 auto; padding:0 var(--gap); }
+
+/* ...existing code... */
