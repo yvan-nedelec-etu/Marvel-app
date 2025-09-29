@@ -223,4 +223,19 @@ nav a{ color:var(--muted); text-decoration:none; padding:6px 8px; border-radius:
 .center { margin: 0 auto; max-width:var(--max-width); padding:0 var(--gap); }
 .container { max-width:var(--max-width); margin:0 auto; padding:0 var(--gap); }
 
+
+/* style des liens dans la liste pour meilleure lisibilité */
+#characters li a,
+#characters li .character-link,
+li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* petite amélioration visuelle optionnelle */
+#characters li a:hover,
+#characters li .character-link:hover {
+  text-decoration: underline;
+}
+
 /* ...existing code... */
