@@ -13,6 +13,22 @@ npm run dev
 
 L'application est accessible à l'adresse affichée dans la console.
 
+## Tests unitaires
+
+### Lancer les tests
+```bash
+npm test
+```
+
+### Lancer les tests avec couverture de code
+```bash
+npm run test:coverage
+```
+
+### Lancer les tests en mode surveillance (watch)
+```bash
+npm run test:watch
+```
 
 ## Rechargement à chaud
 
