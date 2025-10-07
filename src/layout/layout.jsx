@@ -1,5 +1,6 @@
 import { Link, Outlet } from 'react-router-dom'
 import '../App.css'
+import { version } from '../../package.json'
 
 export default function MainLayout() {
   return (
@@ -32,7 +33,9 @@ export default function MainLayout() {
         </main>
       </div>
 
-      <footer className="app-footer">© Marvel App</footer>
+            <footer className="app-footer">
+        © Marvel App — v{version}
+      </footer>
     </div>
   )
 }
