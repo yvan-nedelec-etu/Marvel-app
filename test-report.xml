@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\CharactersPage.test.jsx">
+    <testCase name="CharactersPage component renders page with correct title and heading when characters are loaded" duration="110"/>
+    <testCase name="CharactersPage component renders page with empty state when no characters" duration="30"/>
+    <testCase name="CharactersPage component page structure includes all required elements" duration="17"/>
+    <testCase name="CharactersPage component loader function calls getCharacters API" duration="1"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\CharacterDetailPage.test.jsx">
+    <testCase name="CharacterDetailPage component renders character detail page with correct title when character exists" duration="36"/>
+    <testCase name="CharacterDetailPage component loader function calls API with correct parameters" duration="1"/>
+    <testCase name="CharacterDetailPage component loader throws 404 response when character not found" duration="2"/>
+    <testCase name="CharacterDetailPage component renders character with minimal data" duration="17"/>
+    <testCase name="CharacterDetailPage component handles API error gracefully" duration="13"/>
+    <testCase name="CharacterDetailPage component renders page component with document.title assignment" duration="24"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\components\CharactersList.test.jsx">
+    <testCase name="CharactersList component renders empty list when characters array is empty" duration="9"/>
+    <testCase name="CharactersList component renders empty list when characters is not provided" duration="3"/>
+    <testCase name="CharactersList component displays all characters correctly when characters array is provided" duration="16"/>
+    <testCase name="CharactersList component handles characters with different property structures" duration="11"/>
+    <testCase name="CharactersList component handles null and undefined characters in array" duration="4"/>
+    <testCase name="CharactersList component handles empty objects and objects without displayable properties" duration="7"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\CharacterDetail.test.jsx">
+    <testCase name="CharacterDetail component displays character information correctly when image exists" duration="11"/>
+    <testCase name="CharacterDetail component displays character information correctly when image does not exist" duration="8"/>
+    <testCase name="CharacterDetail component displays character information with incomplete thumbnail data" duration="6"/>
+    <testCase name="CharacterDetail component displays &quot;No description available.&quot; when description is missing" duration="4"/>
+    <testCase name="CharacterDetail component displays &quot;No description available.&quot; when description is null" duration="4"/>
+    <testCase name="CharacterDetail component returns null when no character is provided" duration="2"/>
+    <testCase name="CharacterDetail component returns null when character is undefined" duration="1"/>
+    <testCase name="CharacterDetail component back to characters link works correctly" duration="5"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\NotFound.test.jsx">
+    <testCase name="NotFound component renders 404 page with correct headings and content" duration="9"/>
+    <testCase name="NotFound component displays home link correctly" duration="6"/>
+    <testCase name="NotFound component has correct styling structure" duration="5"/>
+    <testCase name="NotFound component displays complete error message" duration="4"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\components\NumberOfCharacters.test.jsx">
+    <testCase name="NumberOfCharacters component renders &quot;There is no character&quot; when characters array is empty" duration="2"/>
+    <testCase name="NumberOfCharacters component renders &quot;There is 1 character&quot; when characters array has one character" duration="1"/>
+    <testCase name="NumberOfCharacters component renders &quot;There are 2 characters&quot; when characters array has exactly two characters" duration="1"/>
+    <testCase name="NumberOfCharacters component renders plural &quot;There are N characters&quot; when characters array has multiple characters" duration="1"/>
+    <testCase name="NumberOfCharacters component handles undefined characters prop (treat as empty)" duration="1"/>
+    <testCase name="NumberOfCharacters component handles null characters prop as empty" duration="1"/>
+    <testCase name="NumberOfCharacters component handles object characters prop as empty" duration="1"/>
+    <testCase name="NumberOfCharacters component handles string characters prop as empty" duration="0"/>
+    <testCase name="NumberOfCharacters component handles number characters prop as empty" duration="2"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\Home.test.jsx">
+    <testCase name="Home component renders page with correct heading and content" duration="6"/>
+    <testCase name="Home component has correct semantic structure" duration="3"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\Contact.test.jsx">
+    <testCase name="Contact component renders page with correct heading and content" duration="7"/>
+    <testCase name="Contact component displays contact information correctly" duration="2"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\About.test.jsx">
+    <testCase name="About component renders page with correct heading and content" duration="8"/>
+    <testCase name="About component displays team information correctly" duration="1"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\api\characters-api.test.js">
+    <testCase name="characters-api getCharacters should return the list of characters" duration="2"/>
+    <testCase name="characters-api getCharacterById find by numeric id" duration="1"/>
+    <testCase name="characters-api getCharacterById find by id as string" duration="1"/>
+    <testCase name="characters-api getCharacterById find string entry" duration="0"/>
+    <testCase name="characters-api getCharacterById find by name when id missing" duration="0"/>
+    <testCase name="characters-api getCharacterById rejects when not found" duration="15"/>
+    <testCase name="edge cases - characters not an array getCharacters returns empty array when characters module is not an array" duration="2"/>
+    <testCase name="edge cases - characters not an array getCharacterById returns null when characters module is not an array" duration="1"/>
+  </file>
+</testExecutions>
