@@ -42,7 +42,7 @@ describe('CharactersPage component', () => {
       {
         path: '/characters',
         Component: CharactersPage,
-        loader, // Utiliser le vrai loader
+        loader,
         HydrateFallback: () => <div>Loading characters...</div>,
       },
     ])
@@ -62,8 +62,8 @@ describe('CharactersPage component', () => {
     expect(screen.getByText('Captain America')).toBeInTheDocument()
     expect(screen.getByText('There are 3 characters')).toBeInTheDocument()
 
-    // Vérifier que l'API a été appelée (couvre la ligne 9)
-    expect(getCharacters).toHaveBeenCalledTimes(1)
+    // Vérifier que l'API a été appelée avec les paramètres par défaut
+    expect(getCharacters).toHaveBeenCalledWith({ sort: 'name', order: 'asc' })
   })
 
   test('renders page with empty state when no characters', async () => {
@@ -73,7 +73,7 @@ describe('CharactersPage component', () => {
       {
         path: '/characters',
         Component: CharactersPage,
-        loader, // Utiliser le vrai loader
+        loader,
         HydrateFallback: () => <div>Loading characters...</div>,
       },
     ])
@@ -91,10 +91,10 @@ describe('CharactersPage component', () => {
     expect(screen.getByText('There is no character')).toBeInTheDocument()
 
     // Vérifier que l'API a été appelée
-    expect(getCharacters).toHaveBeenCalledTimes(1)
+    expect(getCharacters).toHaveBeenCalledWith({ sort: 'name', order: 'asc' })
   })
 
-  test('page structure includes all required elements', async () => {
+  test('page structure includes all required elements including sort controls', async () => {
     const mockCharacters = [{ id: '1', name: 'Spider-Man' }]
 
     getCharacters.mockResolvedValue(mockCharacters)
@@ -103,7 +103,7 @@ describe('CharactersPage component', () => {
       {
         path: '/characters',
         Component: CharactersPage,
-        loader, // Utiliser le vrai loader
+        loader,
         HydrateFallback: () => <div>Loading characters...</div>,
       },
     ])
@@ -121,18 +121,58 @@ describe('CharactersPage component', () => {
     expect(screen.getByText('There is 1 character')).toBeInTheDocument()
     expect(screen.getByRole('link', { name: 'Spider-Man' })).toBeInTheDocument()
 
+    // Vérifier les contrôles de tri
+    expect(screen.getByLabelText('Sort by:')).toBeInTheDocument()
+    expect(screen.getByLabelText('Order:')).toBeInTheDocument()
+    expect(screen.getByDisplayValue('Name')).toBeInTheDocument()
+    expect(screen.getByDisplayValue('Ascending')).toBeInTheDocument()
+
     // Vérifier que l'API a été appelée
-    expect(getCharacters).toHaveBeenCalledTimes(1)
+    expect(getCharacters).toHaveBeenCalledWith({ sort: 'name', order: 'asc' })
   })
 
-  test('loader function calls getCharacters API', async () => {
-    // Test direct du loader pour s'assurer de la couverture ligne 9
+  test('loader function calls getCharacters API with default parameters', async () => {
     const mockCharacters = [{ id: '1', name: 'Test' }]
     getCharacters.mockResolvedValue(mockCharacters)
 
-    const result = await loader()
+    // Mock d'une request sans paramètres
+    const mockRequest = {
+      url: 'http://localhost:3000/characters'
+    }
 
-    expect(getCharacters).toHaveBeenCalledTimes(1)
+    const result = await loader({ request: mockRequest })
+
+    expect(getCharacters).toHaveBeenCalledWith({ sort: 'name', order: 'asc' })
+    expect(result).toEqual(mockCharacters)
+  })
+
+  test('loader function calls getCharacters API with URL parameters', async () => {
+    const mockCharacters = [{ id: '1', name: 'Test' }]
+    getCharacters.mockResolvedValue(mockCharacters)
+
+    // Mock d'une request avec paramètres de tri
+    const mockRequest = {
+      url: 'http://localhost:3000/characters?sort=modified&order=desc'
+    }
+
+    const result = await loader({ request: mockRequest })
+
+    expect(getCharacters).toHaveBeenCalledWith({ sort: 'modified', order: 'desc' })
+    expect(result).toEqual(mockCharacters)
+  })
+
+  test('loader handles partial URL parameters', async () => {
+    const mockCharacters = [{ id: '1', name: 'Test' }]
+    getCharacters.mockResolvedValue(mockCharacters)
+
+    // Mock d'une request avec seulement le paramètre sort
+    const mockRequest = {
+      url: 'http://localhost:3000/characters?sort=modified'
+    }
+
+    const result = await loader({ request: mockRequest })
+
+    expect(getCharacters).toHaveBeenCalledWith({ sort: 'modified', order: 'asc' })
     expect(result).toEqual(mockCharacters)
   })
 })
