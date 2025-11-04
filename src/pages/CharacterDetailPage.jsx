@@ -1,19 +1,45 @@
-import { useLoaderData } from 'react-router-dom'
-import { getCharacterById } from '../api/characters-api'
-import CharacterDetail from './CharacterDetail'
+import React, { useEffect } from 'react';
+import { useLoaderData } from 'react-router';
+import { getCharacterById } from '../api/characters-api';
+import CharacterDetail from './CharacterDetail';
+import D3PieChart from '../components/D3PieChart';
+import RechartsPieChart from '../components/RechartsPieChart';
 
 // loader : récupère params.id et appelle l'API
 export async function loader({ params }) {
-  const { id } = params
-  const character = await getCharacterById(id)
-  if (!character) {
-    throw new Response('Not Found', { status: 404 })
-  }
-  return character
+    const { id } = params;
+    const character = await getCharacterById(id);
+    if (!character) {
+        throw new Response('Not Found', { status: 404 });
+    }
+    return character;
 }
 
-export default function CharacterDetailPage() {
-  const character = useLoaderData()
-  document.title = `${character.name} | Marvel App`
-  return <CharacterDetail character={character} />
-}
+const CharacterDetailPage = () => {
+    // retrieve the character using the useLoaderData hook
+    const character = useLoaderData();
+
+    useEffect(() => {
+        document.title = `${character.name} | Marvel App`;
+    }, [character]);
+
+    return (
+        <>
+            <CharacterDetail character={character} />
+
+            <h2>Capacities</h2>
+            <div style={{ display: 'flex'}}>
+                <div style={{flex: '50%'}}>
+                    <h3>Using D3</h3>
+                    <D3PieChart data={character.capacities} />
+                </div>
+                <div style={{flex: '50%'}}>
+                    <h3>Using Recharts</h3>
+                    <RechartsPieChart data={character.capacities} />
+                </div>
+            </div>
+        </>
+    );
+};
+
+export default CharacterDetailPage;
