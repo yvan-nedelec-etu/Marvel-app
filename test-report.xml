@@ -1,100 +1,131 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\components\chart-utils.test.js">
+    <testCase name="prepareData should return an empty array when no data is provided" duration="8"/>
+    <testCase name="prepareData should return the correct transformed data when all values are provided" duration="1"/>
+    <testCase name="prepareData should filter out elements with undefined values" duration="1"/>
+    <testCase name="prepareData should handle partial data correctly" duration="1"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\About.test.jsx">
+    <testCase name="About component renders page with correct heading and content" duration="96"/>
+    <testCase name="About component displays team information correctly" duration="7"/>
+  </file>
   <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\api\characters-api.test.js">
-    <testCase name="characters-api getCharacters should return the list of characters with default sorting (name, asc)" duration="3"/>
-    <testCase name="characters-api getCharacters should sort by name in ascending order" duration="0"/>
+    <testCase name="characters-api getCharacters should return the list of characters with default sorting (name, asc)" duration="8"/>
+    <testCase name="characters-api getCharacters should sort by name in ascending order" duration="1"/>
     <testCase name="characters-api getCharacters should sort by name in descending order" duration="1"/>
-    <testCase name="characters-api getCharacters should sort by modified date in ascending order" duration="0"/>
-    <testCase name="characters-api getCharacters should sort by modified date in descending order" duration="0"/>
-    <testCase name="characters-api getCharacters should handle invalid sort parameter (defaults to name)" duration="0"/>
-    <testCase name="characters-api getCharacters should handle invalid order parameter (defaults to asc)" duration="0"/>
+    <testCase name="characters-api getCharacters should sort by modified date in ascending order" duration="1"/>
+    <testCase name="characters-api getCharacters should sort by modified date in descending order" duration="1"/>
+    <testCase name="characters-api getCharacters should handle invalid sort parameter (defaults to name)" duration="1"/>
+    <testCase name="characters-api getCharacters should handle invalid order parameter (defaults to asc)" duration="1"/>
     <testCase name="characters-api getCharacters should handle empty options object" duration="1"/>
     <testCase name="characters-api getCharacters should handle elements without names when sorting by modified" duration="1"/>
     <testCase name="characters-api getCharacterById find by numeric id" duration="0"/>
-    <testCase name="characters-api getCharacterById find by id as string" duration="0"/>
+    <testCase name="characters-api getCharacterById find by id as string" duration="10"/>
     <testCase name="characters-api getCharacterById find string entry" duration="1"/>
     <testCase name="characters-api getCharacterById find by name when id missing" duration="1"/>
-    <testCase name="characters-api getCharacterById throws Response with 404 status when not found" duration="2"/>
-    <testCase name="edge cases - characters not an array getCharacters returns empty array when characters module is not an array" duration="1"/>
-    <testCase name="edge cases - characters not an array getCharacterById returns null when characters module is not an array" duration="1"/>
+    <testCase name="characters-api getCharacterById throws Response with 404 status when not found" duration="3"/>
+    <testCase name="edge cases - characters not an array getCharacters returns empty array when characters module is not an array" duration="2"/>
+    <testCase name="edge cases - characters not an array getCharacterById returns null when characters module is not an array" duration="4"/>
+    <testCase name="edge cases - characters not an array getCharacterById handles edge case for line 31 coverage" duration="2"/>
   </file>
-  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\components\SortControls.test.jsx">
-    <testCase name="SortControls component renders sort controls with default values" duration="32"/>
-    <testCase name="SortControls component renders with URL parameters" duration="6"/>
-    <testCase name="SortControls component renders with partial URL parameters (only sort)" duration="6"/>
-    <testCase name="SortControls component renders with partial URL parameters (only order)" duration="3"/>
-    <testCase name="SortControls component handles sort change interaction" duration="8"/>
-    <testCase name="SortControls component handles order change interaction" duration="6"/>
-    <testCase name="SortControls component handles multiple interactions in sequence" duration="6"/>
-    <testCase name="SortControls component contains all sort options" duration="3"/>
-    <testCase name="SortControls component contains all order options" duration="4"/>
-    <testCase name="SortControls component has correct styling structure" duration="23"/>
-    <testCase name="SortControls component select elements have correct styling" duration="9"/>
-    <testCase name="SortControls component labels have correct styling" duration="4"/>
-    <testCase name="SortControls component preserves existing URL parameters when changing sort" duration="3"/>
-    <testCase name="SortControls component preserves existing URL parameters when changing order" duration="5"/>
-  </file>
-  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\CharactersPage.test.jsx">
-    <testCase name="CharactersPage component renders page with correct title and heading when characters are loaded" duration="50"/>
-    <testCase name="CharactersPage component renders page with empty state when no characters" duration="32"/>
-    <testCase name="CharactersPage component page structure includes all required elements including sort controls" duration="36"/>
-    <testCase name="CharactersPage component loader function calls getCharacters API with default parameters" duration="1"/>
-    <testCase name="CharactersPage component loader function calls getCharacters API with URL parameters" duration="0"/>
-    <testCase name="CharactersPage component loader handles partial URL parameters" duration="0"/>
-  </file>
-  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\CharacterDetailPage.test.jsx">
-    <testCase name="CharacterDetailPage component renders character detail page with correct title when character exists" duration="29"/>
-    <testCase name="CharacterDetailPage component loader function calls API with correct parameters" duration="1"/>
-    <testCase name="CharacterDetailPage component loader throws 404 response when character not found" duration="0"/>
-    <testCase name="CharacterDetailPage component renders character with minimal data" duration="9"/>
-    <testCase name="CharacterDetailPage component handles API error gracefully" duration="9"/>
-    <testCase name="CharacterDetailPage component renders page component with document.title assignment" duration="22"/>
-  </file>
-  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\components\CharactersList.test.jsx">
-    <testCase name="CharactersList component renders empty list when characters array is empty" duration="5"/>
-    <testCase name="CharactersList component renders empty list when characters is not provided" duration="3"/>
-    <testCase name="CharactersList component displays all characters correctly when characters array is provided" duration="10"/>
-    <testCase name="CharactersList component handles characters with different property structures" duration="15"/>
-    <testCase name="CharactersList component handles null and undefined characters in array" duration="4"/>
-    <testCase name="CharactersList component handles empty objects and objects without displayable properties" duration="4"/>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\components\D3PieChart.test.jsx">
+    <testCase name="D3PieChart renders D3PieChart with label and value" duration="129"/>
   </file>
   <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\CharacterDetail.test.jsx">
-    <testCase name="CharacterDetail component displays character information correctly when image exists" duration="7"/>
-    <testCase name="CharacterDetail component displays character information correctly when image does not exist" duration="2"/>
-    <testCase name="CharacterDetail component displays character information with incomplete thumbnail data" duration="2"/>
-    <testCase name="CharacterDetail component displays &quot;No description available.&quot; when description is missing" duration="3"/>
-    <testCase name="CharacterDetail component displays &quot;No description available.&quot; when description is null" duration="5"/>
-    <testCase name="CharacterDetail component returns null when no character is provided" duration="1"/>
-    <testCase name="CharacterDetail component returns null when character is undefined" duration="1"/>
-    <testCase name="CharacterDetail component back to characters link works correctly" duration="3"/>
-  </file>
-  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\components\NumberOfCharacters.test.jsx">
-    <testCase name="NumberOfCharacters component renders &quot;There is no character&quot; when characters array is empty" duration="2"/>
-    <testCase name="NumberOfCharacters component renders &quot;There is 1 character&quot; when characters array has one character" duration="1"/>
-    <testCase name="NumberOfCharacters component renders &quot;There are 2 characters&quot; when characters array has exactly two characters" duration="1"/>
-    <testCase name="NumberOfCharacters component renders plural &quot;There are N characters&quot; when characters array has multiple characters" duration="1"/>
-    <testCase name="NumberOfCharacters component handles undefined characters prop (treat as empty)" duration="1"/>
-    <testCase name="NumberOfCharacters component handles null characters prop as empty" duration="1"/>
-    <testCase name="NumberOfCharacters component handles object characters prop as empty" duration="1"/>
-    <testCase name="NumberOfCharacters component handles string characters prop as empty" duration="1"/>
-    <testCase name="NumberOfCharacters component handles number characters prop as empty" duration="0"/>
+    <testCase name="CharacterDetail component displays character information correctly when image exists" duration="136"/>
+    <testCase name="CharacterDetail component displays character information correctly when image does not exist" duration="10"/>
+    <testCase name="CharacterDetail component displays character information with incomplete thumbnail data" duration="11"/>
+    <testCase name="CharacterDetail component displays &quot;No description available.&quot; when description is missing" duration="6"/>
+    <testCase name="CharacterDetail component displays &quot;No description available.&quot; when description is null" duration="10"/>
+    <testCase name="CharacterDetail component returns null when no character is provided" duration="2"/>
+    <testCase name="CharacterDetail component returns null when character is undefined" duration="3"/>
+    <testCase name="CharacterDetail component back to characters link works correctly" duration="25"/>
   </file>
   <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\NotFound.test.jsx">
-    <testCase name="NotFound component renders 404 page with correct headings and content" duration="10"/>
-    <testCase name="NotFound component displays home link correctly" duration="2"/>
-    <testCase name="NotFound component has correct styling structure" duration="4"/>
-    <testCase name="NotFound component displays complete error message" duration="2"/>
+    <testCase name="NotFound component renders 404 page with correct headings and content" duration="136"/>
+    <testCase name="NotFound component displays home link correctly" duration="33"/>
+    <testCase name="NotFound component has correct styling structure" duration="17"/>
+    <testCase name="NotFound component displays complete error message" duration="5"/>
   </file>
   <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\Contact.test.jsx">
-    <testCase name="Contact component renders page with correct heading and content" duration="5"/>
-    <testCase name="Contact component displays contact information correctly" duration="1"/>
+    <testCase name="Contact component renders page with correct heading and content" duration="119"/>
+    <testCase name="Contact component displays contact information correctly" duration="8"/>
   </file>
-  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\About.test.jsx">
-    <testCase name="About component renders page with correct heading and content" duration="5"/>
-    <testCase name="About component displays team information correctly" duration="2"/>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\components\CharactersList.test.jsx">
+    <testCase name="CharactersList component renders empty list when characters array is empty" duration="98"/>
+    <testCase name="CharactersList component renders empty list when characters is not provided" duration="16"/>
+    <testCase name="CharactersList component displays all characters correctly when characters array is provided" duration="82"/>
+    <testCase name="CharactersList component handles characters with different property structures" duration="31"/>
+    <testCase name="CharactersList component handles null and undefined characters in array" duration="17"/>
+    <testCase name="CharactersList component handles empty objects and objects without displayable properties" duration="10"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\components\SortControls.test.jsx">
+    <testCase name="SortControls component renders sort controls with default values" duration="67"/>
+    <testCase name="SortControls component renders with URL parameters" duration="10"/>
+    <testCase name="SortControls component renders with partial URL parameters (only sort)" duration="9"/>
+    <testCase name="SortControls component renders with partial URL parameters (only order)" duration="7"/>
+    <testCase name="SortControls component handles sort change interaction" duration="18"/>
+    <testCase name="SortControls component handles order change interaction" duration="10"/>
+    <testCase name="SortControls component handles multiple interactions in sequence" duration="27"/>
+    <testCase name="SortControls component contains all sort options" duration="12"/>
+    <testCase name="SortControls component contains all order options" duration="8"/>
+    <testCase name="SortControls component has correct styling structure" duration="58"/>
+    <testCase name="SortControls component select elements have correct styling" duration="29"/>
+    <testCase name="SortControls component labels have correct styling" duration="8"/>
+    <testCase name="SortControls component preserves existing URL parameters when changing sort" duration="5"/>
+    <testCase name="SortControls component preserves existing URL parameters when changing order" duration="5"/>
   </file>
   <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\Home.test.jsx">
-    <testCase name="Home component renders page with correct heading and content" duration="6"/>
-    <testCase name="Home component has correct semantic structure" duration="2"/>
+    <testCase name="Home component renders page with correct heading and content" duration="24"/>
+    <testCase name="Home component has correct semantic structure" duration="10"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\CharactersPage.test.jsx">
+    <testCase name="CharactersPage component renders page with correct title and heading when characters are loaded" duration="286"/>
+    <testCase name="CharactersPage component renders page with empty state when no characters" duration="45"/>
+    <testCase name="CharactersPage component page structure includes all required elements including sort controls" duration="21"/>
+    <testCase name="CharactersPage component loader function calls getCharacters API with default parameters" duration="1"/>
+    <testCase name="CharactersPage component loader function calls getCharacters API with URL parameters" duration="1"/>
+    <testCase name="CharactersPage component loader handles partial URL parameters" duration="1"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\components\NumberOfCharacters.test.jsx">
+    <testCase name="NumberOfCharacters component renders &quot;There is no character&quot; when characters array is empty" duration="22"/>
+    <testCase name="NumberOfCharacters component renders &quot;There is 1 character&quot; when characters array has one character" duration="3"/>
+    <testCase name="NumberOfCharacters component renders &quot;There are 2 characters&quot; when characters array has exactly two characters" duration="5"/>
+    <testCase name="NumberOfCharacters component renders plural &quot;There are N characters&quot; when characters array has multiple characters" duration="3"/>
+    <testCase name="NumberOfCharacters component handles undefined characters prop (treat as empty)" duration="2"/>
+    <testCase name="NumberOfCharacters component handles null characters prop as empty" duration="2"/>
+    <testCase name="NumberOfCharacters component handles object characters prop as empty" duration="1"/>
+    <testCase name="NumberOfCharacters component handles string characters prop as empty" duration="2"/>
+    <testCase name="NumberOfCharacters component handles number characters prop as empty" duration="3"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\pages\CharacterDetailPage.test.jsx">
+    <testCase name="CharacterDetailPage component renders character detail page with correct title when character exists" duration="91"/>
+    <testCase name="CharacterDetailPage component loader function calls API with correct parameters" duration="1"/>
+    <testCase name="CharacterDetailPage component loader throws 404 response when character not found" duration="2"/>
+    <testCase name="CharacterDetailPage component renders character with minimal data" duration="38"/>
+    <testCase name="CharacterDetailPage component handles API error gracefully" duration="12"/>
+    <testCase name="CharacterDetailPage component renders page component with document.title assignment" duration="36"/>
+  </file>
+  <file path="C:\Users\ynedel01\Downloads\Marvel-app\src\components\RechartsPieChart.test.jsx">
+    <testCase name="RechartsPieChart renders RechartsPieChart with data" duration="110"/>
+    <testCase name="RechartsPieChart renders &quot;No data available&quot; when data is empty" duration="5"/>
+    <testCase name="RechartsPieChart renders &quot;No data available&quot; when data is null" duration="3"/>
+    <testCase name="RechartsPieChart renders &quot;No data available&quot; when data is undefined" duration="2"/>
+    <testCase name="RechartsPieChart renders &quot;No data available&quot; when prepareData returns null" duration="2"/>
+    <testCase name="RechartsPieChart renders &quot;No data available&quot; when prepareData returns undefined" duration="2"/>
+    <testCase name="RechartsPieChart calls prepareData with provided data" duration="21"/>
+    <testCase name="RechartsPieChart applies custom width and height when provided" duration="24"/>
+    <testCase name="RechartsPieChart uses default dimensions when width and height not provided" duration="21"/>
+    <testCase name="RechartsPieChart renders empty state with custom styling" duration="14"/>
+    <testCase name="RechartsPieChart renders empty state with default dimensions" duration="3"/>
+    <testCase name="RechartsPieChart renders pie chart with single data point" duration="19"/>
+    <testCase name="RechartsPieChart renders pie chart with zero values" duration="17"/>
+    <testCase name="RechartsPieChart handles very large numbers" duration="18"/>
+    <testCase name="RechartsPieChart component updates when data changes" duration="40"/>
+    <testCase name="RechartsPieChart component handles props change from data to no data" duration="27"/>
+    <testCase name="RechartsPieChart component handles props change from no data to data" duration="21"/>
+    <testCase name="RechartsPieChart renders correct number of Cell components for each data entry" duration="19"/>
+    <testCase name="RechartsPieChart applies different colors to multiple pie segments" duration="26"/>
   </file>
 </testExecutions>

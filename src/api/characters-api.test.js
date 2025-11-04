@@ -173,4 +173,28 @@ describe('edge cases - characters not an array', () => {
     const res = await getById(1)
     expect(res).toBeNull()
   })
+
+
+  // À ajouter dans characters-api.test.js
+test('getCharacterById handles edge case for line 31 coverage', async () => {
+  // Test spécifique pour couvrir la ligne 31
+  // (probablement une condition dans la fonction find)
+  
+  // Teste avec un objet qui a une propriété id mais qui est falsy
+  jest.resetModules()
+  jest.doMock('../../data/characters.json', () => [
+    { id: '', name: 'EmptyId' },
+    { id: 0, name: 'ZeroId' },
+    { id: false, name: 'FalseId' },
+  ], { virtual: true })
+  
+  const { getCharacterById } = require('./characters-api')
+  
+  // Ces cas devraient déclencher la ligne 31
+  const result1 = await getCharacterById('')
+  expect(result1).toEqual({ id: '', name: 'EmptyId' })
+  
+  const result2 = await getCharacterById('0')
+  expect(result2).toEqual({ id: 0, name: 'ZeroId' })
+})
 })
