@@ -25,8 +25,7 @@ module.exports = {
   moduleNameMapper: {
     "d3": "<rootDir>/node_modules/d3/dist/d3.min.js",
   },
-  
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.js'],
+
   testResultsProcessor: 'jest-sonar-reporter',
   coverageReporters: ['text', 'lcov', 'html'],
 };
