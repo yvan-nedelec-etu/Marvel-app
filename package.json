@@ -10,7 +10,11 @@
     "preview": "vite preview",
     "prepare": "husky",
     "test": "jest",
-    "test:coverage": "jest --coverage"
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:e2e": "playwright test",
+    "test:e2e:headed": "playwright test --headed",
+    "test:e2e:ui": "playwright test --ui"
   },
   "dependencies": {
     "d3": "^7.9.0",

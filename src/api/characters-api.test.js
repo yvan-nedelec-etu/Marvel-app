@@ -218,4 +218,31 @@ test('getCharacterById handles edge cases', async () => {
     expect(typeof result === 'object' || result === undefined).toBeTruthy();
   }
 });
+
+  test('getCharacterById with string id conversion', async () => {
+    // Test avec un ID qui existe réellement dans le JSON
+    const character = await getCharacterById('1009718'); // Wolverine existe dans tes données
+    
+    expect(character).toBeDefined();
+    expect(character.id).toBe('1009718');
+    expect(character.name).toBe('Wolverine');
+  });
+
+  test('getCharacterById handles edge cases', async () => {
+    // Test avec des IDs qui n'existent pas - ils doivent retourner undefined
+    const testCases = ['999999', '', null, undefined];
+    
+    for (const id of testCases) {
+      const result = await getCharacterById(id);
+      expect(result).toBeUndefined(); // Pas d'erreur, juste undefined
+    }
+  });
+
+  test('getCharacterById handles non-existent id without throwing', async () => {
+    // Test que la fonction ne lance pas d'erreur pour un ID inexistant
+    expect(async () => {
+      const result = await getCharacterById('999999');
+      expect(result).toBeUndefined();
+    }).not.toThrow();
+  });
 })

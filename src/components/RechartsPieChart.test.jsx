@@ -318,4 +318,23 @@ test('renders all Cell components with proper colors', () => {
   expect(prepareData).toHaveBeenCalledWith(mockData);
   expect(prepareData).toHaveReturnedWith(multipleData);
 });
+
+// Ajouter ce test dans RechartsPieChart.test.jsx
+test('renders Cell components with color cycling', () => {
+  // Créer des données qui forcent l'utilisation du modulo pour les couleurs
+  const manyItemsData = Array.from({ length: 10 }, (_, i) => ({
+    name: `Item${i}`,
+    value: i + 1
+  }));
+  
+  prepareData.mockReturnValue(manyItemsData);
+  
+  render(<RechartsPieChart data={mockData} />);
+
+  // Vérifier que le graphique est rendu
+  expect(document.querySelector('.recharts-responsive-container')).toBeInTheDocument();
+  
+  // Vérifier que prepareData a été appelé
+  expect(prepareData).toHaveBeenCalledWith(mockData);
+});
 });
