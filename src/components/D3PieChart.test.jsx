@@ -25,8 +25,6 @@ describe('D3PieChart', () => {
     test('renders D3PieChart with label and value', () => {
         render(<D3PieChart data={data} />);
 
-        screen.debug();
-
         expect(document.getElementById('pie-container')).toBeInTheDocument();
 
         // Check if the data is displayed
