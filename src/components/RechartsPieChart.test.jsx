@@ -292,4 +292,30 @@ describe('RechartsPieChart', () => {
         // Vérifier que prepareData a retourné nos données de test
         expect(prepareData).toHaveReturnedWith(multiData);
     });
+
+    // Ajouter ce test dans RechartsPieChart.test.jsx
+test('renders all Cell components with proper colors', () => {
+  const multipleData = [
+    { name: 'Force', value: 10 },
+    { name: 'Intelligence', value: 8 },
+    { name: 'Energy', value: 7 },
+    { name: 'Speed', value: 9 },
+    { name: 'Durability', value: 6 },
+    { name: 'Fighting', value: 5 },
+    { name: 'Extra1', value: 4 },
+    { name: 'Extra2', value: 3 },
+    { name: 'Extra3', value: 2 } // 9 éléments pour tester le modulo
+  ];
+  
+  prepareData.mockReturnValue(multipleData);
+  
+  render(<RechartsPieChart data={mockData} />);
+
+  // Vérifier que le graphique est rendu
+  expect(document.querySelector('.recharts-responsive-container')).toBeInTheDocument();
+  
+  // Vérifier que prepareData a été appelé
+  expect(prepareData).toHaveBeenCalledWith(mockData);
+  expect(prepareData).toHaveReturnedWith(multipleData);
+});
 });
