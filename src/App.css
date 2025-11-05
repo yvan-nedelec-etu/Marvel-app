@@ -238,4 +238,9 @@ li a {
   text-decoration: underline;
 }
 
+@media (max-width: 600px) {
+  footer {
+    display: none;
+  }
+}
 /* ...existing code... */
