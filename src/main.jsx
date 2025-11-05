@@ -11,6 +11,7 @@ import CharacterDetailPage, { loader as characterLoader } from './pages/Characte
 import About from './pages/About'
 import Contact from './pages/Contact'
 import NotFound from './pages/NotFound'
+import Compare from './pages/Compare'; // Importer le nouveau composant
 
 // route config avec loader pour /characters
 const router = createBrowserRouter([
@@ -20,7 +21,8 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <Home /> },
       { path: 'characters', element: <CharactersPage />, loader: charactersLoader },
-      { path: 'characters/:id', element: <CharacterDetailPage />, loader: characterLoader }, // <-- ajouté
+      { path: 'characters/:id', element: <CharacterDetailPage />, loader: characterLoader },
+      { path: 'compare', element: <Compare /> }, // Ajouter la nouvelle route ici // <-- ajouté
       { path: 'about', element: <About /> },
       { path: 'contact', element: <Contact /> },
       { path: '*', element: <NotFound /> },

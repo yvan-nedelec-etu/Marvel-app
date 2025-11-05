@@ -19,6 +19,7 @@ export default function MainLayout() {
           <div className="nav-inner">
             <Link to="/">Home</Link>
             <Link to="/characters">Characters</Link>
+            <Link to="/compare">Compare</Link>
             <Link to="/about">About</Link>
             <Link to="/contact">Contact</Link>
           </div>

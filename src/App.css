@@ -243,4 +243,61 @@ li a {
     display: none;
   }
 }
+
+.compare-page {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--text); /* Assurer que le texte par défaut est blanc */
+}
+
+.compare-page h2 {
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: var(--text); /* CORRIGÉ : Utiliser la couleur de texte principale */
+}
+
+.selectors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.selector-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.selector-container label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: var(--muted); /* CORRIGÉ : Utiliser la couleur de texte secondaire */
+}
+
+.selector-container select {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: 1px solid var(--glass);
+  min-width: 200px;
+  background-color: var(--bg-1); /* CORRIGÉ : Fond sombre */
+  color: var(--text); /* CORRIGÉ : Texte blanc */
+}
+
+.chart-container {
+  margin-top: 2rem;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* CORRECTION pour le texte à l'intérieur du graphique radar */
+.chart-container text {
+  fill: var(--text) !important; /* Assurer que tout le texte du SVG est blanc */
+}
 /* ...existing code... */
